@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="jumbotron">
+    <h1>CA-Wiki Docs</h1>
+    <p>Select a document to view:</p>
+    <h3><a href="/pages/newDocument"> New Document </a></h3><br>
+
+    <table border="1">
+        <td>
+        <br>
+        <h5><u>Upload Image</u></h5>
+        <form action="/images/upload" enctype="multipart/form-data" method="post">
+            <input type="file" name="file" id="file">
+            <input type="submit" value="Upload">
+            {% csrf-field %}
+        </form>
+        <br>
+        </td>
+    </table>
+  </div>
+  <table border="1" style="width:75%"><tr>
+    <th>Date Modified</th>
+    <th>Doc Title</th>
+  </tr>{% for x, y in docs %}<tr>
+      <td>{{x}}</td>
+      <td>{{y}}</td>
+      <td><a href="/pages/{{y}}"> VIEW </a></td>
+      <td><a href="/pages/{{y}}/edit"> EDIT </a></td>
+      <td><a href="/pages/{{y}}/delete"> DELETE </a>
+      </td></tr> {% endfor %}</table>
+{% endblock %}

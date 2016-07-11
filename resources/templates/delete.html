@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Are you sure you want to delete "{{name}}"?</p>
+<form action="/delete" method="post">
+    <input type="hidden" name="title" value="{{name}}"  >
+    <input type="submit" value="YES">
+    {% csrf-field %}
+</form>
+<a href="/pages/{{name}}"> NO </a>
+
+
+
+{% endblock %}

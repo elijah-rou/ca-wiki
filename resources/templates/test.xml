@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+
+<html xmlns="http://www.mypage.com" xml:lang="en">
+    <head>
+      <script type="text/clojurescript">
+          (require '[clj-http.client :as client])
+            (defn request []
+
+      </script>
+    </head>
+  <body>
+    <div class="top">
+      <a href="javascript://" onclick="makeRequest()">Click Here</a>
+      <div id="test">text to be replaced</div>
+    </div>
+  </body>
+</html>

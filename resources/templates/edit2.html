@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <p> {{name}}</p>
+
+ <form action="/save" method="post">
+     <h2><u>Doc Title:</u></h2><h4>{{name}}</h4><br>
+     <h2><u>Doc Content:</u></h2><br><textarea name="doc" rows="8" cols="40">{{doc}}</textarea>
+     <input type="submit">
+     {% csrf-field %}
+ </form>
+
+{% endblock %}
+
+
+{% else %}
+<div id="epiceditor">
+    <textarea id="epictext" name="doc" rows="8" cols="40"></textarea><br>
+</div>

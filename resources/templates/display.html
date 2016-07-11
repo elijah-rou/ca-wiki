@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>{{name}}</h1>
+</div>
+
+ {{doc|markdown}}
+ <a href="/pages/{{name}}/edit"> EDIT </a><br>
+ <a href="/pages/{{name}}/delete"> DELETE </a>
+
+
+{% endblock %}

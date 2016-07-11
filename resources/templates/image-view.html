@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Images</h1>
+  <img src="file:///home/eroussos/elijah.rou@gmail.com/Pictures/FB_Award.jpg" style="float:right;width:42px;height:42px;">
+</div>
+<ul style="list-style-type:none" id="image-list">
+    {% for i in images %}
+        <li><img src="{{i}}" height="100px"></li><br>
+    {% endfor %}
+</ul>
+{% endblock %}
