@@ -41,13 +41,17 @@
          ;REDIRECT
         (response/see-other (str "/pages/" (:title (:params req))) )))
 
-(defn image-view []
+(defn list-images[]
     (let [files  (file-seq (io/file (io/resource "images/")))
           f (filter #(.isFile %) files)
           final (map #(str "images/" %) (map #(.getName %) f))]
-          (layout/render
-          "image-view.html" {:images final})
-    ))
+          (seq final)
+    )
+)
+
+(defn image-view []
+    (layout/render "image-view.html" {:images (list-images)})
+)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -71,7 +75,8 @@
         ;(println uri)
          (layout/render
          "edit.html" {:name name
-                      :doc (slurp uri)})
+                      :doc (slurp uri)
+                      :images (list-images)})
     )
 )
 
